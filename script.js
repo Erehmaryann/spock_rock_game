@@ -27,6 +27,8 @@ const choices = {
   spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
 };
 
+let computerChoice = '';
+
 // Reset all selected icons
 function resetSelected() {
   allGameIcons.forEach((icon) => {
@@ -34,10 +36,64 @@ function resetSelected() {
   });
 }
 
+// Get computer random choice
+function getComputerRandomChoice() {
+  const computerRandomNumber = Math.random();
+  if (computerRandomNumber < 0.2) {
+    computerChoice = 'rock';
+  } else if (computerRandomNumber <= 0.4) {
+    computerChoice = 'paper';
+  } else if (computerRandomNumber <= 0.6) {
+    computerChoice = 'scissors';
+  } else if (computerRandomNumber <= 0.8) {
+    computerChoice = 'lizard';
+  } else {
+    computerChoice = 'spock';
+  }
+}
+
+// Add selected styling and update computer choice
+function computerSelect() {
+  switch (computerChoice) {
+    case 'rock':
+      computerRock.classList.add('selected');
+      computerChoiceEl.textContent = '--- Rock';
+      break;
+    case 'paper':
+      computerPaper.classList.add('selected');
+      computerChoiceEl.textContent = '--- Paper';
+      break;
+    case 'scissors':
+      computerScissors.classList.add('selected');
+      computerChoiceEl.textContent = '--- Scissors';
+      break;
+    case 'lizard':
+      computerLizard.classList.add('selected');
+      computerChoiceEl.textContent = '--- Lizard';
+      break;
+    case 'spock':
+      computerSpock.classList.add('selected');
+      computerChoiceEl.textContent = '--- Spock';
+      break;
+    default:
+      break;
+  }
+}
+
+
+// check result of game
+function checkResult() {
+  resetSelected();
+  // Get computer choice
+  getComputerRandomChoice();
+  // Computer select
+  computerSelect();
+}
+
 // Passing in player selection value and styling Icon
 function select(playerChoice) {
-  resetSelected();
-  // Add selected styling and updated player choice
+  checkResult();
+  // Add selected styling and update player choice
   switch (playerChoice) {
     case 'rock':
       playerRock.classList.add('selected');
