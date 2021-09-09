@@ -27,3 +27,39 @@ const choices = {
   spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
 };
 
+// Reset all selected icons
+function resetSelected() {
+  allGameIcons.forEach((icon) => {
+    icon.classList.remove('selected');
+  });
+}
+
+// Passing in player selection value and styling Icon
+function select(playerChoice) {
+  resetSelected();
+  // Add selected styling and updated player choice
+  switch (playerChoice) {
+    case 'rock':
+      playerRock.classList.add('selected');
+      playerChioceEl.textContent = '--- Rock';
+      break;
+    case 'paper':
+      playerPaper.classList.add('selected');
+      playerChioceEl.textContent = '--- Paper';
+      break;
+    case 'scissors':
+      playerScissors.classList.add('selected');
+      playerChioceEl.textContent = '--- Scissors';
+      break;
+    case 'lizard':
+      playerLizard.classList.add('selected');
+      playerChioceEl.textContent = '--- Lizard';
+      break;
+    case 'spock':
+      playerSpock.classList.add('selected');
+      playerChioceEl.textContent = '--- Spock';
+      break;
+    default:
+      break;
+  }
+}
