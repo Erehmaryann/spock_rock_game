@@ -2,7 +2,7 @@
 
 A rock, paper, scissors, lizards, spock game.
 
-It is hosted on github pages: [video player](https://erehmaryann.github.io/spock_rock_game/) 
+It is hosted on github pages: [spock-rock](https://erehmaryann.github.io/spock_rock_game/) 
 
 And it is fully responsive.
 
